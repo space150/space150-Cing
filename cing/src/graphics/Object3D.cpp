@@ -776,6 +776,12 @@ namespace Cing
 	*/
 	void Object3D::setTexture( const std::string& textureFileName )
 	{
+		if ( !isValid() )
+		{
+			LOG_ERROR( "Error: Object3D has not been initialized. setup method must be called first" );
+			return;
+		}
+
 		// Duplicate material (if is not duplicated) to modify just this instance's material
 		duplicateMaterial();
 
