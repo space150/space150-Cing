@@ -72,6 +72,18 @@ inline int firstPO2From( int number )
 	return Ogre::Bitwise::firstPO2From(number);
 }
 
+/**
+ * @brief Rounds a number. From Boost::math
+ * @param[in] v Number to round
+ * @return rounded number
+ */
+template <typename T>
+inline T round(const T& v )
+{
+   return v < 0 ? static_cast<T>(ceil(v - 0.5f)) : static_cast<T>(floor(v + 0.5f));
+}
+
+
 /*
  * @brief Returns the min of the two received values
  * @return the min of the two received values
