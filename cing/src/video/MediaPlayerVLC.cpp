@@ -170,7 +170,7 @@ namespace Cing
 	/**
 	* Loads a movie file
 	*/
-	void MediaPlayerVLC::load( const char* fileName )
+	void MediaPlayerVLC::load( const std::string& fileName )
 	{
 		// Build path to file
 		m_fileName = fileName;

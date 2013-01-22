@@ -63,7 +63,7 @@ namespace Cing
 
 		// Init / Release / Update
 		void    init    ();
-		void    load    ( const char* fileName );
+		void    load    ( const std::string& fileName );
 		void    end     ();
 		void    update  ();
 		Image&  getImage() { return m_frameContainer.image; }
