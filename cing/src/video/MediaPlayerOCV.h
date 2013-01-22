@@ -53,18 +53,19 @@ namespace Cing
 
 		// Init / Release / Update
 		bool    init    ();
-		bool    load    ( const char* fileName, GraphicsType requestedVideoFormat = RGB, float fps = -1 );
+		bool    load    ( const std::string& fileName, GraphicsType requestedVideoFormat = RGB, float fps = -1 );
 		void    end     ();
 		void    update  ();
 		Image&  getImage();
 
 		// Query methods
-		bool    isValid   () const { return m_bIsValid; }
-		bool    isPlaying ();
-		float   duration  () const { return (float)m_videoDuration; }
-		float   time      ();
-		int     getWidth  () const { return m_videoWidth; }
-		int     getHeight () const { return m_videoHeight; }
+		bool    isValid   	() const { return m_bIsValid; }
+		bool    isPlaying 	();
+		float   duration  	() const { return (float)m_videoDuration; }
+		float   time      	();
+		int     getWidth  	() const { return m_videoWidth; }
+		int     getHeight 	() const { return m_videoHeight; }
+		int		currentFrame() const { return m_currentFrame; }
 
 		// Media control
 		void    play    ();

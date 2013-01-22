@@ -106,7 +106,7 @@ namespace Cing
 	 * @param fps			Desired Frames per Second for the playback. -1 means to use the fps of the movie file.
 	 * @return true if the video was succesfully loaded
 	 */
-	bool MediaPlayerOCV::load( const char* fileName, GraphicsType requestedVideoFormat /*= RGB*/, float fps /*= -1*/  )
+	bool MediaPlayerOCV::load( const std::string&  fileName, GraphicsType requestedVideoFormat /*= RGB*/, float fps /*= -1*/  )
 	{
 		// Build path to file
 		bool result = buildPathToFile( fileName );
@@ -189,7 +189,7 @@ namespace Cing
 		unsigned long millisPlayback = m_timer.getMilliseconds();
 		double currentFrame = ((double)millisPlayback/1000.0) * m_videoFps;
 		double ratio = currentFrame / (double)m_videoNFrames;
-		
+
 		// Request frames until the playhed is where we want
 		// NOTE: This is done this way, as in mac / opencv video capture has bugs in CV_CAP_PROP_POS_MSEC, CV_CAP_PROP_POS_FRAMES and CV_CAP_PROP_POS_AVI_RATIO
 		// So it is not possible to control the playhead
