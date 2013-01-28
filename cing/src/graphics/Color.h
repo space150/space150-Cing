@@ -80,9 +80,9 @@ private:
 
 	// Static attributes
 	static GraphicsType	m_colorMode;
-	static float				m_rRange;
-	static float				m_gRange;
-	static float				m_bRange;
+	static float		m_rRange;
+	static float		m_gRange;
+	static float		m_bRange;
 };
 
 } // namespace Cing
