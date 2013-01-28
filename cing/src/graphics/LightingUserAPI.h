@@ -36,8 +36,10 @@ namespace Cing
  */
 
 // Ambient lighting
-void ambientLight( float gray );
-void ambientLight( float red, float green, float blue );
+void	ambientLight	( float gray );
+void	ambientLight	( float red, float green, float blue );
+void	ambientLight	( const Color& color );
+Color	getAmbientLight	();
 
 
 } // namespace Cing
