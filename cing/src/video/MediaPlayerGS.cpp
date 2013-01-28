@@ -362,7 +362,7 @@ namespace Cing
 	/**
 	 * Updates media playback state
 	 */
-	void MediaPlayerGS::update()
+	void MediaPlayerGS::update( bool copyBufferToImageIfAvailable )
 	{
 		LOG_ENTER_FUNCTION;
 	
@@ -371,6 +371,12 @@ namespace Cing
 		{
 			jump(0);
 			m_loopPending = false;
+		}
+
+		// Check if we have a new buffer to copy
+		if ( copyBufferToImageIfAvailable && m_newBufferReady )
+		{
+			copyBufferIntoImage();
 		}
 
 		LOG_EXIT_FUNCTION;
@@ -391,11 +397,7 @@ namespace Cing
 		else
 		{
 			// Update, just in case there are pending operations
-			update();
-
-			// Check if we have a new buffer to copy
-			if ( m_newBufferReady )
-				copyBufferIntoImage();
+			update(true);
 		}
 
 		LOG_EXIT_FUNCTION;

@@ -54,7 +54,7 @@ namespace Cing
 		bool    init    ();
 		bool    load    ( const std::string& fileName, GraphicsType requestedVideoFormat = RGB, float fps = -1 );
 		void    end     ();
-		void    update  ();
+		void    update  ( bool copyBufferToImageIfAvailable = true );
 		Image&  getImage();
 
 		// Query methods
