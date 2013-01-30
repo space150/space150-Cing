@@ -66,6 +66,8 @@ namespace Cing
 		int     getWidth  	() const { return m_videoWidth; }
 		int     getHeight 	() const { return m_videoHeight; }
 		int		currentFrame() const { return m_currentFrame; }
+		float	frameRate	() const { return m_videoFps; }
+		float	fps			() const { return m_videoFps; }
 
 		// Media control
 		void    play    ();
