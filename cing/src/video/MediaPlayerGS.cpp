@@ -111,8 +111,6 @@ namespace Cing
 			break;
 
 		case GST_MESSAGE_ERROR:
-			player->stop();
-
 			// Get error info
 			GError*	error;
 			gchar*	debugInfo;
