@@ -174,6 +174,22 @@ void setFrameRate( int frameRate )
 	Application::getSingleton().frameRate( frameRate );
 }
 
+#if defined(WIN32)
+	/**
+	 * @brief Returns the application window handle (Windows)
+	 * @return the application window handle (Windows)
+	 */
+	HWND getWindowHandle()
+	{
+		HWND handle = 0;
+		if ( appWindow && appWindow->getOgreWindow() )
+			appWindow->getOgreWindow()->getCustomAttribute( "WINDOW", &handle );
+		return handle;
+
+	}
+#endif
+
+
 /**
  * Registers a plugin that will be init/updated/ended by the application framework
  */

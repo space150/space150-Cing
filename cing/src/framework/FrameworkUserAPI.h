@@ -50,6 +50,14 @@ void noLoop();
 void redraw();
 void setFrameRate( int frameRate );
 
+// Application Window related
+
+// This is windows specific
+#if defined(WIN32)
+	HWND getWindowHandle();
+#endif
+
+
 // Plugin related
 void			registerPlugin	( Plugin& plugin );
 Cing::Plugin*	getPlugin		( const std::string& pluginName );
