@@ -59,7 +59,7 @@ public:
 
 	// Set methods
 	void					setActiveFont				( Font& font );
-	void					addText						();
+	void					addText						( long long milliseconds );
 	void					updateActiveFontProperties	();
 
   	// Query methods

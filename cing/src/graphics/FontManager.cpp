@@ -99,8 +99,17 @@ namespace Cing
 			return;
 		}
 
-		// set invisible all text areas (but store them to reuse in future frames)
-		std::for_each( m_activeFontsToRender.begin(), m_activeFontsToRender.end(), std::bind2nd( std::mem_fun( &MovableText::show ), false ) );
+		// For all the texts, if they have no more time to live, make them invisible
+		for( TextList::iterator it = m_activeFontsToRender.begin(); it != m_activeFontsToRender.end(); ++it )
+		{
+			MovableText* text = *it;
+			if ( text )
+			{
+				text->decreaseTimeToLiveMillis( elapsedMillis );
+				if ( text->getTimeToLiveMillis() < 0 )
+					text->show(false);
+			}
+		}
 
 		// We can reuse all used fonts next frame
 		m_nextFontToUse = 0;
@@ -120,7 +129,7 @@ namespace Cing
 	/**
 	* @brief Add a text to be render queue with the current properties set by user calls
 	*/
-	void FontManager::addText()
+	void FontManager::addText( long long milliseconds )
 	{
 		// Check the manager is ok
 		if ( !isValid() )
@@ -142,6 +151,9 @@ namespace Cing
 		newText->setTextAlignment(m_activeFontProperties.halign, m_activeFontProperties.valign);
 		newText->setCaption( m_activeFontProperties.text.toUTF() );
 		newText->setWordWrap( m_activeFontProperties.wordWrap );
+
+		// Time to live (so that this text can stay on screen more than one frame)
+		newText->setTimeToLiveMillis( milliseconds );
 
 		// Text display properties
 		newText->showOnTop();
@@ -330,7 +342,7 @@ namespace Cing
 	MovableText* FontManager::getNewText()
 	{
 		// Can we reuse a font?
-		if ( m_nextFontToUse < m_activeFontsToRender.size() )
+		if ( (m_nextFontToUse < m_activeFontsToRender.size()) && (m_activeFontsToRender[ m_nextFontToUse]->isVisible() == false) )
 			return m_activeFontsToRender[ m_nextFontToUse++ ];
 
 		// No text available to reuse -> create a new one

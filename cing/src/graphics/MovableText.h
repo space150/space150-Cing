@@ -82,7 +82,9 @@ namespace Cing
 		void	setTextAreaWidth			( float width );
 		void	setTextAreaHeight			( float height );
 		void	setBackgroundTransparency	( float transparency );
-
+		void	setTimeToLiveMillis			( long long milliseconds ) { m_millisToLive = milliseconds; }
+		void	decreaseTimeToLiveMillis	( long long milliseconds ) { m_millisToLive -= milliseconds; }
+	
 		// Get settings
 		bool            				isValid					() const	{ return m_bIsValid;   }
 		const   String					&getFontName			() const 	{ return mFontName; }
@@ -96,6 +98,7 @@ namespace Cing
 		AABox							getAABB					()			{ return mAABB; }
 		Ogre::Node*						getNode					()			{ return mParentNode; }
 		const Vector&					getScale				() const	{ return mScale; }
+		long long						getTimeToLiveMillis		() const	{ return m_millisToLive; }
 
 		// Calculators
 		float							getTextBlockHeightPixels( const std::string& text, float textBlockWidth );
@@ -191,6 +194,9 @@ namespace Cing
 		Ogre::FontPtr				mpFont;
 		Ogre::MaterialPtr			mpMaterial;
 		Ogre::MaterialPtr			mpBackgroundMaterial;
+
+		// Time to live (so that text can live for while before going back to invisible again)
+		long long					m_millisToLive;
 
 		// for calculation of AABB
 		Vector						m_min, m_max;

@@ -1002,7 +1002,7 @@ void saveCurrentFrame( const String& name, const Rect& rect )
  * @param x		x coordinate where the text will be printed
  * @param y		y coordinate where the text will be printed
  */
-void text( const String& text, float x, float y )
+void text( const String& text, float x, float y, long long milliseconds /*= -1*/ )
 {
 	// Check empty text
 	if ( text == "" )
@@ -1021,7 +1021,7 @@ void text( const String& text, float x, float y )
 	currentFontProperties.height			= -1;
 	
 	// Add the text to the manager so that it gets rendered in the next draw
-	FontManager::getSingleton().addText();
+	FontManager::getSingleton().addText(milliseconds);
 }
 
 
@@ -1031,7 +1031,7 @@ void text( const String& text, float x, float y )
  * @param x		x coordinate where the text will be printed
  * @param y		y coordinate where the text will be printed
  */
-void text( const String& text, float x, float y, float z )
+void text( const String& text, float x, float y, float z, long long milliseconds /*= -1*/ )
 {
 	// Check empty text
 	if ( text == "" )
@@ -1051,7 +1051,7 @@ void text( const String& text, float x, float y, float z )
 	currentFontProperties.height			= -1;
 
 	// Add the text to the manager so that it gets rendered in the next draw
-	FontManager::getSingleton().addText();
+	FontManager::getSingleton().addText(milliseconds);
 }
 
 /**
@@ -1062,7 +1062,7 @@ void text( const String& text, float x, float y, float z )
  * @param width		width of the text box that will be printed
  * @param height	height of the text box that will be printed. If -1, the height will not be limited
  */
-void text( const String& text, float x, float y, float width, float height )
+void text( const String& text, float x, float y, float width, float height, long long milliseconds /*= -1*/ )
 {
 	// Set the font properties
 	FontProperties& currentFontProperties	= FontManager::getSingleton().getActiveFontProperties();
@@ -1074,7 +1074,7 @@ void text( const String& text, float x, float y, float width, float height )
 	currentFontProperties.height			= height;
 
 	// Add the text to the manager so that it gets rendered in the next draw
-	FontManager::getSingleton().addText();
+	FontManager::getSingleton().addText(milliseconds);
 }
 
 /**
@@ -1085,7 +1085,7 @@ void text( const String& text, float x, float y, float width, float height )
  * @param width		width of the text box that will be printed
  * @param height	height of the text box that will be printed
  */
-void text( const String& text, float x, float y, float z, float width, float height )
+void text( const String& text, float x, float y, float z, float width, float height, long long milliseconds /*= -1*/ )
 {
 	// Set the font properties
 	FontProperties& currentFontProperties	= FontManager::getSingleton().getActiveFontProperties();
@@ -1098,7 +1098,7 @@ void text( const String& text, float x, float y, float z, float width, float hei
 	currentFontProperties.height			= height;
 
 	// Add the text to the manager so that it gets rendered in the next draw
-	FontManager::getSingleton().addText();
+	FontManager::getSingleton().addText(milliseconds);
 }
 
 

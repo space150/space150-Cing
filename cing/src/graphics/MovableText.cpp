@@ -37,7 +37,7 @@ MovableText::MovableText() :
 			mTimeUntilNextToggle(0), mSpaceWidth(0), mUpdateColors(true), mOnTop(false), mHorizontalAlignment(LEFT),
 			mVerticalAlignment(TOP), m_textAreaWidth(-1),
 			m_textAreaHeight(-1), mAllocSize(0), mwordWrap(true), mAlwaysFaceCamera(false), mRender2D(false), m_bIsValid(false),
-			m_maxSquaredRadius(-1), mScale( Vector::UNIT_SCALE ), mViewportAspectCoef( 1.0f ), m_leading( -1 )
+			m_maxSquaredRadius(-1), mScale( Vector::UNIT_SCALE ), mViewportAspectCoef( 1.0f ), m_leading( -1 ), m_millisToLive(-1)
 {
 
 	// Create unique name

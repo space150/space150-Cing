@@ -192,20 +192,10 @@ void saveCurrentFrame( const String& name );
 //-----------------------------------------------------------------------------------
 // Typography
 //-----------------------------------------------------------------------------------
-void text( const String& text, float x, float y );
-void text( const String& text, float x, float y, float z);
-void text( const String& text, float x, float y, float width, float height );
-void text( const String& text, float x, float y, float z, float width, float height );
-
-
-
-void text( const std::ostringstream& text, float x, float y );
-void text( int	text, float x, float y );
-void text( float text, float x, float y );
-//void text(data, x, y, z)
-//void text(stringdata, x, y, width, height)
-//void text(stringdata, x, y, width, height, z)
-
+void text( const String& text, float x, float y, long long milliseconds = -1 );
+void text( const String& text, float x, float y, float z, long long milliseconds = -1);
+void text( const String& text, float x, float y, float width, float height, long long milliseconds = -1 );
+void text( const String& text, float x, float y, float z, float width, float height, long long milliseconds = -1 );
 
 // Text setters
 void 	textFont		(Font& font);
